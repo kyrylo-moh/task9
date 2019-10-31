@@ -7,14 +7,14 @@ import util.Output;
 
 public class Controller {
 
-    Service service = new Service();
-    Input input = new Input();
-    Output output = new Output();
+    private Service service = new Service();
+    private Input input = new Input();
+    private Output output = new Output();
 
     public void runController() {
         String answer;
         do {
-            ModelNumber modelNumber = new ModelNumber(input.getInt(), input.getInt());
+            ModelNumber modelNumber = new ModelNumber(input.getInt("number"), input.getInt("number`s pow"));
             output.getMsg((service.numberToPow(modelNumber.getNumber(), modelNumber.getPowNumber())));
             output.getMsg("Do you want to continue?\t y/n");
             answer = input.getAnswer();

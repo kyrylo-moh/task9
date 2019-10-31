@@ -8,20 +8,20 @@ public class Input {
     private Validator validator = new Validator();
     private Output output = new Output();
 
-    public int getInt() {
+    public int getInt(String name) {
         int num;
-        System.out.println("Input number:");
+        output.getMsg("Input number " + name + ":");
         if (scanner.hasNextInt()) {
             num = scanner.nextInt();
             if (!validator.numIsPositive(num)) {
-                System.out.println("Your must input number > 0");
+                output.getMsg("Your must input number > 0");
                 scanner.next();
-                num = getInt();
+                num = getInt(name);
             }
         } else {
             output.getInstruction();
             scanner.next();
-            num = getInt();
+            num = getInt(name);
         }
         return num;
     }
